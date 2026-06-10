@@ -1,40 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Add Expense</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenzo - Add Expense</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
-    <h1>Expenzo </h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="add.html">Add</a>
-        <a href="records.html">Records</a>
-        <a href="summary.html">Summary</a>
-    </nav>
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-badge">E</div>
+            <div>
+                <h1>Expenzo</h1>
+                <p>Smart expense & budget planner</p>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a class="active" href="add.html">Add</a>
+            <a href="records.html">Records</a>
+            <a href="summary.html">Summary</a>
+            <a href="login.html" id="loginNavLink">Login</a>
+            <div id="userProfileBadge" class="user-profile-badge" hidden>
+                <span class="user-profile-avatar" id="profileAvatar">U</span>
+                <span class="user-profile-text">
+                    <strong id="profileName">User</strong>
+                    <small>Signed in</small>
+                </span>
+            </div>
+            <a href="#" data-action="logout" onclick="logout(); return false;" id="logoutNavLink" style="display:none;">Logout</a>
+        </nav>
+    </div>
 </header>
 
-<div class="container">
-    <h2>Add Expense</h2>
+<main class="page-shell">
+    <section class="glass-card form-card">
+        <div class="section-header">
+            <div>
+                <h3>Add a new expense</h3>
+                <p>Capture spending quickly and keep your records current.</p>
+            </div>
+        </div>
+        <div class="form-grid">
+            <div>
+                <label for="desc">Description</label>
+                <input id="desc" placeholder="Lunch with team">
+            </div>
+            <div>
+                <label for="amount">Amount (₹)</label>
+                <input id="amount" type="number" min="0" step="0.01" placeholder="0.00">
+            </div>
+            <div>
+                <label for="category">Category</label>
+                <select id="category">
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Healthcare</option>
+                    <option>Education</option>
+                    <option>Travel</option>
+                    <option>Salary</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="date">Date</label>
+                <input id="date" type="date" class="calendar-input" onfocus="if (this.showPicker) this.showPicker();">
+            </div>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button onclick="addExpense()">Save expense</button>
+            <button class="secondary" onclick="resetForm()">Clear form</button>
+        </div>
+    </section>
+</main>
 
-    <input id="desc" placeholder="Description">
-    <input id="amount" type="number" placeholder="Amount">
-
-    <select id="category">
-        <option>Food</option>
-        <option>Transport</option>
-        <option>Shopping</option>
-        <option>Bills</option>
-        <option>Entertainment</option>
-    </select>
-
-    <input id="date" type="date">
-    <button onclick="addExpense()">Save</button>
-</div>
-
-<footer>Expenzo © 2026</footer>
+<footer>© 2026 Expenzo, Inc. All rights reserved ~ record saving.</footer>
 <script src="script.js"></script>
 </body>
 </html>

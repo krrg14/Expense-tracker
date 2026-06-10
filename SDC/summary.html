@@ -1,90 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Summary</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenzo - Summary</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
 <header>
-    <h1>Expenzo</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="add.html">Add</a>
-        <a href="records.html">Records</a>
-        <a href="summary.html">Summary</a>
-    </nav>
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-badge">E</div>
+            <div>
+                <h1>Expenzo</h1>
+                <p>Smart expense & budget planner</p>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="add.html">Add</a>
+            <a href="records.html">Records</a>
+            <a class="active" href="summary.html">Summary</a>
+            <a href="login.html" id="loginNavLink">Login</a>
+            <div id="userProfileBadge" class="user-profile-badge" hidden>
+                <span class="user-profile-avatar" id="profileAvatar">U</span>
+                <span class="user-profile-text">
+                    <strong id="profileName">User</strong>
+                    <small>Signed in</small>
+                </span>
+            </div>
+            <a href="#" data-action="logout" onclick="logout(); return false;" id="logoutNavLink" style="display:none;">Logout</a>
+        </nav>
+    </div>
 </header>
 
-<div class="container">
-    <h2>Summary</h2>
-
-    <select id="summaryType" onchange="updateSummaryUI()">
-        <option value="">-- Select Type --</option>
-        <option value="day">Day</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-    </select>
-
-    <input type="date" id="dayInput" style="display:none;">
-    <input type="month" id="monthInput" style="display:none;">
-    <input type="number" id="yearInput" placeholder="Enter Year" style="display:none;">
-
-    <button onclick="generateSummary()">Generate Summary</button>
-
-    <table class="summary-table">
-        <tr>
-            <th>Selected Period</th>
-            <th>Total (₹)</th>
-        </tr>
-        <tr class="overall-row">
-            <td id="selectedLabel">-</td>
-            <td id="total">0</td>
-        </tr>
-    </table>
-
-    <h3>Generated Expense Summary</h3>
-    <table class="summary-table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Category</th>
-                <th>Amount (₹)</th>
-            </tr>
-        </thead>
-        <tbody id="generatedTable"></tbody>
-        <tfoot>
-            <tr class="overall-row">
-                <td colspan="2">Grand Total</td>
-                <td id="grandTotal">0</td>
-            </tr>
-        </tfoot>
-    </table>
-
-    <hr>
-
-    <h3>Category-wise Expense Distribution</h3>
-
-    <div class="donut-wrapper">
-        <canvas id="summaryCategoryChart"></canvas>
-        <div class="donut-center" id="summaryCenter">
-            <div class="center-cat">Select</div>
-            <div class="center-amt">₹0</div>
-            <div class="center-per">0%</div>
+<main class="page-shell">
+    <section class="glass-card summary-card">
+        <div class="section-header">
+            <div>
+                <h3>Expense summary</h3>
+                <p>Filter spending by day, month, or year and review category distribution.</p>
+            </div>
         </div>
-    </div>
 
-    <div id="summaryLegend" class="app-legend"></div>
+        <div class="form-grid">
+            <div>
+                <label for="summaryType">Period</label>
+                <select id="summaryType" onchange="updateSummaryUI()">
+                    <option value="">-- Select Type --</option>
+                    <option value="day">Day</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option>
+                </select>
+            </div>
+            <div>
+                <label for="dayInput">Day</label>
+                <input type="date" id="dayInput" style="display:none;">
+                <label for="monthInput">Month</label>
+                <input type="month" id="monthInput" style="display:none;">
+                <label for="yearInput">Year</label>
+                <input type="number" id="yearInput" placeholder="Enter Year" style="display:none;">
+            </div>
+        </div>
 
-    <p class="total-text">
-        Total: <span id="summaryTotal">₹0</span>
-    </p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+            <button onclick="generateSummary()">Generate summary</button>
+            <button class="secondary" onclick="printSummary()">Print summary</button>
+        </div>
 
-    <button onclick="printSummary()">Print Summary</button>
-</div>
+        <div class="summary-grid" style="margin-top:14px;">
+            <div class="summary-box"><small>Selected period</small><strong id="selectedLabel">-</strong></div>
+            <div class="summary-box"><small>Total spent</small><strong id="total">0</strong></div>
+        </div>
 
-<footer>Expenzo © 2026</footer>
+        <div class="table-wrap">
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="generatedTable"></tbody>
+                <tfoot>
+                    <tr class="overall-row">
+                        <td colspan="2">Grand Total</td>
+                        <td id="grandTotal">0</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="section-card glass-card" style="margin-top:14px;">
+            <h3>Category-wise expense distribution</h3>
+            <div class="donut-wrapper">
+                <canvas id="summaryCategoryChart"></canvas>
+                <div class="donut-center" id="summaryCenter">
+                    <div class="center-amt">₹0</div>
+                </div>
+            </div>
+            <p id="selectedCategoryLabel" class="selected-category-label">Click a slice to see the selected expense category outside the chart.</p>
+            <div id="summaryLegend" class="app-legend"></div>
+            <p class="total-text">Total: <span id="summaryTotal">₹0</span></p>
+        </div>
+    </section>
+</main>
+
+<footer>© 2026 Expenzo, Inc. All rights reserved ~ Insightful summaries.</footer>
 <script src="script.js"></script>
 </body>
 </html>
