@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f2f6ff;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #2148f3;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+header nav a {
+    margin: 0 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #2125f396;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.container-a {
+    padding: 20px;
+    padding-top: 300px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+.container {
+    padding: 20px;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.summary-table th {
+    background: #f0f4ff;
+}
+
+.overall-row {
+    background: #e3f2fd;
+    font-weight: bold;
+}
+
+/* DONUT */
+.donut-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: auto;
+}
+
+.donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.app-legend {
+    margin-top: 10px;
+}
+
+.legend-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 6px 0;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.total-text {
+    text-align: right;
+    font-weight: bold;
+}
+
+.total-text span {
+    color: red;
+}

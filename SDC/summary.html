@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Expenzo</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="add.html">Add</a>
+        <a href="records.html">Records</a>
+        <a href="summary.html">Summary</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Summary</h2>
+
+    <select id="summaryType" onchange="updateSummaryUI()">
+        <option value="">-- Select Type --</option>
+        <option value="day">Day</option>
+        <option value="month">Month</option>
+        <option value="year">Year</option>
+    </select>
+
+    <input type="date" id="dayInput" style="display:none;">
+    <input type="month" id="monthInput" style="display:none;">
+    <input type="number" id="yearInput" placeholder="Enter Year" style="display:none;">
+
+    <button onclick="generateSummary()">Generate Summary</button>
+
+    <table class="summary-table">
+        <tr>
+            <th>Selected Period</th>
+            <th>Total (₹)</th>
+        </tr>
+        <tr class="overall-row">
+            <td id="selectedLabel">-</td>
+            <td id="total">0</td>
+        </tr>
+    </table>
+
+    <h3>Generated Expense Summary</h3>
+    <table class="summary-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Amount (₹)</th>
+            </tr>
+        </thead>
+        <tbody id="generatedTable"></tbody>
+        <tfoot>
+            <tr class="overall-row">
+                <td colspan="2">Grand Total</td>
+                <td id="grandTotal">0</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <hr>
+
+    <h3>Category-wise Expense Distribution</h3>
+
+    <div class="donut-wrapper">
+        <canvas id="summaryCategoryChart"></canvas>
+        <div class="donut-center" id="summaryCenter">
+            <div class="center-cat">Select</div>
+            <div class="center-amt">₹0</div>
+            <div class="center-per">0%</div>
+        </div>
+    </div>
+
+    <div id="summaryLegend" class="app-legend"></div>
+
+    <p class="total-text">
+        Total: <span id="summaryTotal">₹0</span>
+    </p>
+
+    <button onclick="printSummary()">Print Summary</button>
+</div>
+
+<footer>Expenzo © 2026</footer>
+<script src="script.js"></script>
+</body>
+</html>
