@@ -1,0 +1,26 @@
+[
+  {
+    "id": "exp_1781114217117",
+    "userId": "user_1781114111909",
+    "desc": "outing",
+    "amt": 1000,
+    "cat": "Transport",
+    "dateVal": "2026-05-31"
+  },
+  {
+    "id": "exp_1781114182552",
+    "userId": "user_1781114111909",
+    "desc": "fast-food",
+    "amt": 600,
+    "cat": "Food",
+    "dateVal": "2026-06-05"
+  },
+  {
+    "id": "exp_1781114134694",
+    "userId": "user_1781114111909",
+    "desc": "dress",
+    "amt": 3000,
+    "cat": "Shopping",
+    "dateVal": "2026-06-06"
+  }
+]

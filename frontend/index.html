@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenzo - Professional Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-badge">E</div>
+            <div>
+                <h1>Expenzo</h1>
+                <p>Smart expense & budget planner</p>
+            </div>
+        </div>
+        <nav>
+            <a class="active" href="index.html">Home</a>
+            <a href="add.html">Add</a>
+            <a href="records.html">Records</a>
+            <a href="summary.html">Summary</a>
+            <a href="login.html" id="loginNavLink">Login</a>
+            <div id="userProfileBadge" class="user-profile-badge" hidden>
+                <span class="user-profile-avatar" id="profileAvatar">U</span>
+                <span class="user-profile-text">
+                    <strong id="profileName">User</strong>
+                    <small id="profileStatus">User</small>
+                </span>
+            </div>
+            <a href="#" data-action="logout" onclick="logout(); return false;" id="logoutNavLink" style="display:none;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="page-shell">
+    <section class="hero-grid">
+        <article class="glass-card hero-card">
+            <p class="eyebrow">Professional dashboard</p>
+            <h2>Track spending with a modern, confident finance view.</h2>
+            <p>Expenzo helps you log expenses, review records, and view clear summaries in a polished interface built for everyday finance management.</p>
+            <div class="badge-row">
+                <span class="chip">✓ Add expenses quickly</span>
+                <span class="chip">✓ Review records easily</span>
+                <span class="chip">✓ View summary insights</span>
+            </div>
+            <p><a href="add.html" style="color:#c4b5fd; text-decoration:none; font-weight:700;">Start adding expenses →</a></p>
+        </article>
+
+        <aside class="glass-card preview-panel">
+            <div class="section-header">
+                <div>
+                    <h3>Expense overview</h3>
+                    <p>Quick highlights of your tracker</p>
+                </div>
+            </div>
+            <div class="metric-grid">
+                <div class="metric-card"><small>Daily logging</small><strong>Fast entry</strong></div>
+                <div class="metric-card"><small>Record view</small><strong>Clear table</strong></div>
+                <div class="metric-card"><small>Summary</small><strong>Category insight</strong></div>
+                <div class="metric-card"><small>Access</small><strong>Any device</strong></div>
+            </div>
+        </aside>
+    </section>
+
+    <section class="glass-card section-card">
+        <div class="section-header">
+            <div>
+                <h3>What you can do here</h3>
+                <p>Simple, focused features for everyday expense tracking.</p>
+            </div>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h4>Add expenses</h4>
+                <p>Record food, bills, travel, shopping, and other spending in one place.</p>
+            </article>
+            <article class="feature-card">
+                <h4>Manage records</h4>
+                <p>Keep all entries organized with quick viewing and deletion options.</p>
+            </article>
+            <article class="feature-card">
+                <h4>Review summary</h4>
+                <p>Filter by day, month, or year and understand your spending pattern.</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>© 2026 Expenzo, Inc. All rights reserved..</footer>
+</body>
+</html>
