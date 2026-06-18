@@ -1,6 +1,7 @@
 ## BUILD THIS APPLICATION ON VARIOUS STAGES CHECKOUT THEIR WORKFLOWS AND SNAPSHOTS
 
 # STAGE 1
+Checkout Branch 2 for Docker-compose code
 ## This stage mainly covers containerizing an application and running it in two environments like 1) Local Environment 2) Cloud Environment using Docker-compose
 
 ## Architecture..
